@@ -16,18 +16,23 @@ const useStyles = makeStyles((theme) => ({
     width:900, // 16:9
   },
 }));
-export default function Chart() {
+
+const Chart = (props) => {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <Title>Today</Title>
-      <Iframe
-      url="https://chart-embed.service.newrelic.com/herald/f6364ede-7df9-4f70-8aa2-f4a5d925fe2a?height=400px&timepicker=true?"
-      width="100%"
-      height="500px"
-      position="relative"
-      />
+        <Iframe
+        url={props.link}
+        width="100%"
+        height="500"
+        position="relative"
+        scrolling="no"
+        overflow="hidden"
+        />
     </React.Fragment>
   );
 }
+
+export default Chart;

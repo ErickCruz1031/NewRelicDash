@@ -119,9 +119,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard() {
+const Dashboard = () => {
+
+  //State variables
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const [NR_Link, setLinkOne] = React.useState("https://chart-embed.service.newrelic.com/herald/630a07a3-0a00-4662-a509-4797a679eb49?height=400px&timepicker=true") //Link to the first chart
+  const [NR_Second, setLinkTwo] = React.useState("https://chart-embed.service.newrelic.com/herald/bccf6eee-2755-4f1f-bfe5-12d31c161c9c?height=400px&timepicker=true")//Link to the second chart
+
+
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -130,6 +137,10 @@ export default function Dashboard() {
   };
   //const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const fixedHeightPaper = clsx(classes.paper);
+
+  const appFunc = () =>{
+    console.log("We pressed the button");
+  }
 
   return (
     <div className={classes.root}>
@@ -176,9 +187,9 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* Chart */}
+            {/* Chart  -> Pass the link to the chart as the props of the component */}
             <Grid item xs={12}>
-              <Chart />
+              <Chart link={NR_Link}/>
             </Grid>
           </Grid>
           <Box pt={4}>
@@ -190,15 +201,4 @@ export default function Dashboard() {
   );
 }
 
-/*
-<Grid item xs={12}>
-  <Iframe
-  url="https://chart-embed.service.newrelic.com/herald/f6364ede-7df9-4f70-8aa2-f4a5d925fe2a?height=400px&timepicker=true?"
-  width="900px"
-  height="500px"
-  position="relative"
-  display="initial"
-  />
-</Grid>
-
-*/
+export default Dashboard;
