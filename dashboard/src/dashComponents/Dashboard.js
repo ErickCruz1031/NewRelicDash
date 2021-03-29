@@ -20,15 +20,15 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
-import Deposits from './Deposits';
-import Orders from './Orders';
+import Iframe from 'react-iframe';
+
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        PowerSchool
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -113,7 +113,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 240,
+    height: 600,
+    display: 'flex',
+    flexDirection: 'column',
   },
 }));
 
@@ -126,7 +128,8 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  //const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const fixedHeightPaper = clsx(classes.paper);
 
   return (
     <div className={classes.root}>
@@ -143,7 +146,7 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            New Relic Customer Dashboard
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -174,22 +177,8 @@ export default function Dashboard() {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Chart />
-              </Paper>
-            </Grid>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Deposits />
-              </Paper>
-            </Grid>
-            {/* Recent Orders */}
             <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Orders />
-              </Paper>
+              <Chart />
             </Grid>
           </Grid>
           <Box pt={4}>
@@ -200,3 +189,16 @@ export default function Dashboard() {
     </div>
   );
 }
+
+/*
+<Grid item xs={12}>
+  <Iframe
+  url="https://chart-embed.service.newrelic.com/herald/f6364ede-7df9-4f70-8aa2-f4a5d925fe2a?height=400px&timepicker=true?"
+  width="900px"
+  height="500px"
+  position="relative"
+  display="initial"
+  />
+</Grid>
+
+*/
