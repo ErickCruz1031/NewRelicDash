@@ -27,6 +27,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import MenuItem from './MenuItem'
 
 
 function Copyright() {
@@ -148,6 +149,10 @@ const Dashboard = () => {
     console.log("We pressed the button");
   }
 
+  const compCall = () =>{
+    console.log("We pressed the new Component");
+  }
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -163,7 +168,7 @@ const Dashboard = () => {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            New Relic Customer Dashboard
+            New Relic Leander ISD Dashboard
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -187,60 +192,30 @@ const Dashboard = () => {
         <Divider />
         <List>
           <>
-            <ListItem button>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItem>
-            <ListItem button onClick={appFunc}>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Application Servers" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Database Servers" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Cognos Traffic" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Other" />
-            </ListItem>
+            <MenuItem  callback={compCall} text="Testing Component"/>
+
+            <MenuItem callback={appFunc} text="Application Servers" />
+
+            <MenuItem callback={appFunc} text="Database Servers" />
+
+            <MenuItem callback={appFunc} text="Cognos Traffic" />
+
+            <MenuItem callback={appFunc} text="Other" />
+
           </>
         </List>
         <Divider />
         <List>
           <>
             <ListSubheader inset>Secondary Functions</ListSubheader>
-            <ListItem button>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Export Data" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Task Performance" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Other" />
-            </ListItem>
+
+            <MenuItem callback={appFunc} text="Export Data" />
+
+            <MenuItem callback={appFunc} text="Task Performance" />
+
+            <MenuItem callback={appFunc} text="Other" />
+
+
           </>
         </List>
       </Drawer>

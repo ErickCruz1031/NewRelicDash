@@ -7,15 +7,15 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 
 
-const MenuItem = () =>{
+const MenuItem = (props) =>{
 
 
   return (
-    <ListItem button>
+    <ListItem button onClick={props.callback}>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <ListItemText primary={props.text} />
     </ListItem>
   )
 
