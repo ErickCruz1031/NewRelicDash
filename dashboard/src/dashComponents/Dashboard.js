@@ -131,8 +131,8 @@ const Dashboard = () => {
   //State variables
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  const [NR_Link, setLinkOne] = React.useState("https://chart-embed.service.newrelic.com/herald/630a07a3-0a00-4662-a509-4797a679eb49?height=400px&timepicker=true") //Link to the first chart
-  const [NR_Second, setLinkTwo] = React.useState("https://chart-embed.service.newrelic.com/herald/bccf6eee-2755-4f1f-bfe5-12d31c161c9c?height=400px&timepicker=true")//Link to the second chart
+  const [NR_Link, setLink] = React.useState("https://chart-embed.service.newrelic.com/herald/f1ba1d2d-30c6-4aeb-ae32-ef37c076f61f?height=400px&timepicker=true") //Link to the first chart
+  //const [NR_Second, setLinkTwo] = React.useState("https://chart-embed.service.newrelic.com/herald/bccf6eee-2755-4f1f-bfe5-12d31c161c9c?height=400px&timepicker=true")//Link to the second chart
 
 
 
@@ -152,6 +152,41 @@ const Dashboard = () => {
   const compCall = () =>{
     console.log("We pressed the new Component");
   }
+
+
+  const networkCall = () =>{
+    console.log("Changing link to server network chart");
+    setLink("https://chart-embed.service.newrelic.com/herald/f1ba1d2d-30c6-4aeb-ae32-ef37c076f61f?height=400px&timepicker=true")//Chart to showcase VM network Mbps
+
+  }
+
+  const cpuCall = () =>{
+    console.log("Changing link to server CPU utilization chart");
+    setLink("https://chart-embed.service.newrelic.com/herald/566edd87-deef-49d3-a31f-2d6985a8e2b0?height=400px&timepicker=true")//Chart to showcase VM network Mbps
+
+  }
+
+  const databaseDurationCall = () =>{
+    console.log("Changing link to database task chart");
+    setLink("https://chart-embed.service.newrelic.com/herald/7c55f3b6-337f-4b1a-89fe-7e9e00a34c2a?height=400px&timepicker=true")//Chart to showcase VM network Mbps
+
+  }
+
+  const apmCall = () =>{
+    console.log("Changing link to APM Duration chart");
+    setLink("https://chart-embed.service.newrelic.com/herald/c3770367-8e63-4275-9348-ea1b69a16a8f?height=400px&timepicker=true")//Chart to showcase VM network Mbps
+
+  }
+
+  const ramUtilCall = () =>{
+    console.log("Changing link to RAM Utilization chart");
+    setLink("https://chart-embed.service.newrelic.com/herald/2562e893-6271-4711-bca9-da4abc24cdc3?height=400px&timepicker=true")//Chart to showcase VM network Mbps
+
+  }
+
+
+
+
 
   return (
     <div className={classes.root}>
@@ -192,15 +227,15 @@ const Dashboard = () => {
         <Divider />
         <List>
           <>
-            <MenuItem  callback={compCall} text="Testing Component"/>
+            <MenuItem  callback={networkCall} text="Server Network"/>
 
-            <MenuItem callback={appFunc} text="Application Servers" />
+            <MenuItem callback={cpuCall} text="Server CPU" />
 
-            <MenuItem callback={appFunc} text="Database Servers" />
+            <MenuItem callback={databaseDurationCall} text="DB Task Duration" />
 
-            <MenuItem callback={appFunc} text="Cognos Traffic" />
+            <MenuItem callback={apmCall} text="APM Duration" />
 
-            <MenuItem callback={appFunc} text="Other" />
+            <MenuItem callback={ramUtilCall} text="Ram Utilization" />
 
           </>
         </List>
