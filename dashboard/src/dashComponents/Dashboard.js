@@ -203,13 +203,8 @@ const Dashboard = () => {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            New Relic Leander ISD Dashboard
+            Leander ISD Dashboard
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -240,19 +235,6 @@ const Dashboard = () => {
           </>
         </List>
         <Divider />
-        <List>
-          <>
-            <ListSubheader inset>Secondary Functions</ListSubheader>
-
-            <MenuItem callback={appFunc} text="Export Data" />
-
-            <MenuItem callback={appFunc} text="Task Performance" />
-
-            <MenuItem callback={appFunc} text="Other" />
-
-
-          </>
-        </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />

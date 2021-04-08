@@ -22,7 +22,6 @@ const Chart = (props) => {
 
   return (
     <React.Fragment>
-      <Title>Today</Title>
         <Iframe
         url={props.link}
         width="100%"
